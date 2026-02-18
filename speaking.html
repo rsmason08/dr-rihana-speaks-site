@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0b" />
+  <title>Speaking | Dr Rihana Speaks</title>
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container navbar">
+    <a class="brand" href="/index.html" aria-label="Dr Rihana Speaks home">
+      <div class="brand-mark" aria-hidden="true"></div>
+      <div>
+        <div class="brand-name">Dr Rihana Speaks</div>
+        <span class="brand-sub">Books • Speaking • Impact</span>
+      </div>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a data-nav href="/index.html">Home</a>
+      <a data-nav href="/books.html">Books</a>
+      <a data-nav href="/speaking.html">Speaking</a>
+      <a data-nav href="/events.html">Calendar</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a class="btn" href="/books.html">Shop</a>
+      <a class="btn accent" href="/speaking.html">Request Dr Rihana</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" style="padding-bottom:18px">
+  <div class="container">
+    <div class="kicker"><span class="dot"></span>Speaking</div>
+    <h1>Request Dr Rihana for your event</h1>
+    <p class="lead">Submit an inquiry and you’ll receive a follow-up by email. (Form submissions are handled by Netlify Forms.)</p>
+  </div>
+</section>
+
+<section>
+  <div class="container split">
+    <div class="form-wrap">
+      <h2 style="margin:0 0 10px">Speaking request form</h2>
+      <p class="help" style="margin-top:0">Fields match what you listed: event name, organization, dates, location, details.</p>
+
+      <form name="speaking-request" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thank-you.html">
+        <input type="hidden" name="form-name" value="speaking-request" />
+        <p style="display:none">
+          <label>Don’t fill this out: <input name="bot-field" /></label>
+        </p>
+
+        <div class="field-grid">
+          <div>
+            <label for="eventName">Event name</label>
+            <input id="eventName" name="event_name" required placeholder="e.g., Annual Wellness Summit" />
+          </div>
+          <div>
+            <label for="org">Affiliated organization</label>
+            <input id="org" name="organization" required placeholder="e.g., XYZ Foundation" />
+          </div>
+        </div>
+
+        <div class="field-grid">
+          <div>
+            <label for="dates">Event dates</label>
+            <input id="dates" name="event_dates" required placeholder="e.g., April 10–12, 2026" />
+          </div>
+          <div>
+            <label for="location">Location</label>
+            <input id="location" name="location" required placeholder="City, State (or venue)" />
+          </div>
+        </div>
+
+        <div>
+          <label for="details">Speaking request details</label>
+          <textarea id="details" name="speaking_request_details" required placeholder="Audience size, theme, preferred topics, format (keynote/panel/workshop), honorarium budget, etc."></textarea>
+          <div class="help">Add any constraints: AV needs, travel expectations, timing, and contact info for your coordinator.</div>
+        </div>
+
+        <div class="field-grid">
+          <div>
+            <label for="contactName">Primary contact name</label>
+            <input id="contactName" name="contact_name" required placeholder="Full name" />
+          </div>
+          <div>
+            <label for="contactEmail">Primary contact email</label>
+            <input id="contactEmail" name="contact_email" type="email" required placeholder="name@email.com" />
+          </div>
+        </div>
+
+        <button class="btn accent" type="submit">Submit request</button>
+        <div class="help">After you deploy to Netlify, go to Site → Forms to view submissions. You can set email notifications there.</div>
+      </form>
+    </div>
+
+    <div class="card">
+      <h3>What happens next?</h3>
+      <p>Use this page to set expectations and add credibility (logos, testimonials, speaker topics).</p>
+
+      <div class="notice" style="margin-top:12px">
+        <strong>Optional:</strong> add a “Speaker Topics” section and a PDF one-sheet later.
+      </div>
+
+      <div style="margin-top:14px;display:grid;gap:10px">
+        <div class="badge"><span class="dot"></span>Keynote</div>
+        <div class="badge"><span class="dot"></span>Workshop</div>
+        <div class="badge"><span class="dot"></span>Panel / Fireside</div>
+      </div>
+
+      <div class="meta" style="margin-top:14px">
+        Want a visual schedule? <a href="/events.html">See the speaking calendar →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="brand-name">Dr Rihana Speaks</div>
+      <small>© <span data-year></span> Dr Rihana Speaks. All rights reserved.</small>
+      <div style="margin-top:10px" class="help">
+        Built with Netlify. Speaking requests submit through Netlify Forms.
+      </div>
+    </div>
+    <div>
+      <div class="badge" style="margin-bottom:10px"><span class="dot"></span>Quick links</div>
+      <div style="display:grid;gap:8px">
+        <a href="/books.html">Books & purchase links</a>
+        <a href="/events.html">Speaking calendar</a>
+        <a href="/speaking.html">Speaking request form</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

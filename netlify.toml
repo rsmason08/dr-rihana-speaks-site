@@ -1,0 +1,8 @@
+[build]
+  publish = "."
+
+# Optional: friendly URLs (keep .html too)
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
