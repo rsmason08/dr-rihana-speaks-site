@@ -10,3 +10,12 @@
   const y = new Date().getFullYear();
   document.querySelectorAll('[data-year]').forEach(el => (el.textContent = y));
 })();
+
+const toggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.mobile-menu');
+
+if(toggle){
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+  });
+}

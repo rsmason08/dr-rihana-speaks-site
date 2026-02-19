@@ -285,7 +285,7 @@ body::before{
 @media (max-width: 920px) {
   .navbar {
     justify-content: center;   /* stop space-between */
-    padding: 8px 0;            /* less header height */
+    padding: 8px 0;      /* less header height */
   }
 
   .brand {
@@ -301,5 +301,42 @@ body::before{
   .nav-links,
   .nav-cta {
     display: none !important;  /* ensure hidden */
+  }
+}
+
+.menu-toggle{
+  display:none;
+  background:none;
+  border:none;
+  font-size:28px;
+  cursor:pointer;
+}
+
+/* mobile */
+@media (max-width:920px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .mobile-menu{
+    display:none;
+    flex-direction:column;
+    padding:12px 20px;
+    border-top:1px solid #eee;
+    background:white;
+  }
+
+  .mobile-menu a{
+    padding:10px 0;
+    font-weight:600;
+  }
+
+  .mobile-menu.active{
+    display:flex;
   }
 }
