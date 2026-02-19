@@ -280,3 +280,26 @@ body::before{
   }
 
 }
+
+/* ===== MOBILE HEADER FIX (CENTER LOGO) ===== */
+@media (max-width: 920px) {
+  .navbar {
+    justify-content: center;   /* stop space-between */
+    padding: 8px 0;            /* less header height */
+  }
+
+  .brand {
+    margin: 0 auto;            /* center the brand link */
+  }
+
+  .brand-logo {
+    height: 44px;              /* consistent size */
+    width: auto;
+    display: block;
+  }
+
+  .nav-links,
+  .nav-cta {
+    display: none !important;  /* ensure hidden */
+  }
+}
