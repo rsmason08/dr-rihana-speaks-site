@@ -11,11 +11,13 @@
   document.querySelectorAll('[data-year]').forEach(el => (el.textContent = y));
 })();
 
-const toggle = document.querySelector('.menu-toggle');
-const menu = document.querySelector('.mobile-menu');
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.querySelector(".menu-toggle");
+  const menu = document.querySelector(".mobile-menu");
+  if (!toggle || !menu) return;
 
-if(toggle){
-  toggle.addEventListener('click', () => {
-    menu.classList.toggle('active');
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle("active");
   });
-}
+});
+
