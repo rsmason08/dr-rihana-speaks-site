@@ -26,34 +26,28 @@
 
 <main id="main">
 
-<section class="hero" style="padding-bottom:18px">
-  <div class="container">
-    <div class="kicker"><span class="dot"></span>Calendar</div>
-    <h1>Speaking events calendar</h1>
-    <p class="lead">Month view plus a simple list view for quick scanning.</p>
-  </div>
-</section>
-
 <section>
   <div class="container">
-    <div class="notice">
-      <strong>Edit events:</strong> open <code>/assets/js/events.js</code> and update the <code>window.DRS_EVENTS</code> array.
+    <div class="section-title">
+      <h2>Speaking Calendar</h2>
+      <p>See upcoming public events and appearances.</p>
     </div>
 
-    <div id="calendar" class="card" style="padding:14px"></div>
-
-      <div style="margin-top:16px" id="eventList"></div>
-
-    <div class="card" style="margin-top:16px">
-      <h3 style="margin-top:0">Upcoming (list view)</h3>
-      <div class="help">This list is generated from the same events data.</div>
-      <div id="eventsList" style="margin-top:12px"></div>
+    <div class="gcal-embed" aria-label="Dr Rihana Speaks Google Calendar">
+      <!-- Paste your Google Calendar iframe HERE -->
+      <iframe
+        src="https://calendar.google.com/calendar/embed?src=e4e26a2fc07fe227211384a44ecf11b6efe5c948b412c183db560aa2e096e831%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no">
+        style="border:0"
+        width="800"
+        height="600"
+        frameborder="0"
+        scrolling="no"
+        title="Dr Rihana Speaks Calendar"
+      ></iframe>
     </div>
   </div>
 </section>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.css">
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js"></script>
 <script src="assets/js/events.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -121,9 +115,6 @@ document.addEventListener('DOMContentLoaded', function() {
     <div>
       <div class="brand-name">Dr Rihana Speaks</div>
       <small>© <span data-year></span> Dr Rihana Speaks. All rights reserved.</small>
-      <div style="margin-top:10px" class="help">
-        Built with Netlify. Speaking requests submit through Netlify Forms.
-      </div>
     </div>
 </div>
 </footer>
