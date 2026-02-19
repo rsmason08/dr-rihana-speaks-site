@@ -1,0 +1,28 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# If you use a different domain than Netlify default, keep identity on the same domain.
+# Netlify Identity + Git Gateway must be enabled in Netlify for /admin to work.
+
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+collections:
+  - name: "calendar"
+    label: "Calendar Events"
+    files:
+      - file: "assets/data/events.json"
+        label: "Events"
+        name: "events"
+        fields:
+          - label: "Events"
+            name: "events"
+            widget: "list"
+            summary: "{{fields.title}} — {{fields.start}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Start (YYYY-MM-DD or YYYY-MM-DDTHH:MM)", name: "start", widget: "string" }
+              - { label: "End (optional)", name: "end", widget: "string", required: false }
+              - { label: "Location (optional)", name: "location", widget: "string", required: false }
+              - { label: "Details URL (optional)", name: "url", widget: "string", required: false }

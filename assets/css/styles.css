@@ -140,3 +140,75 @@ textarea{min-height:120px;resize:vertical}
   .footer-grid{grid-template-columns:1fr}
   .nav-links{display:none}
 }
+
+
+/* Pearls + Butterflies theme (subtle, stays within palette) */
+body::before{
+  content:"";
+  position:fixed;
+  inset:-200px;
+  pointer-events:none;
+  z-index:-1;
+  opacity:.35;
+  background:
+    radial-gradient(circle at 20px 20px, rgba(0,0,0,.06) 0 2px, transparent 3px) 0 0/120px 120px,
+    radial-gradient(circle at 80px 70px, rgba(122,11,11,.10) 0 1.8px, transparent 3px) 0 0/160px 160px;
+}
+
+.hero{
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.20;
+  background:
+    radial-gradient(circle at 12% 35%, rgba(0,0,0,.14) 0 2px, transparent 3px),
+    radial-gradient(circle at 18% 42%, rgba(122,11,11,.18) 0 2px, transparent 3px),
+    radial-gradient(circle at 84% 22%, rgba(0,0,0,.12) 0 2px, transparent 3px),
+    radial-gradient(circle at 78% 32%, rgba(122,11,11,.16) 0 2px, transparent 3px);
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:-40px;
+  pointer-events:none;
+  opacity:.12;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='220' viewBox='0 0 260 220'%3E%3Cg fill='none' stroke='%237a0b0b' stroke-width='2'%3E%3Cpath d='M130 110c-18-14-42-22-66-18 10 24 30 46 56 54 10 3 18-1 10-10-10-12-10-18 0-26Z'/%3E%3Cpath d='M130 110c18-14 42-22 66-18-10 24-30 46-56 54-10 3-18-1-10-10 10-12 10-18 0-26Z'/%3E%3Cpath d='M130 110c-8-10-10-22-8-34 6 8 10 16 12 24 2 8 2 14-4 10Z'/%3E%3Cpath d='M130 110c8-10 10-22 8-34-6 8-10 16-12 24-2 8-2 14 4 10Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat:repeat;
+  background-size:260px 220px;
+  mix-blend-mode:multiply;
+}
+
+
+.book-card{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.book-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+}
+.book-image{
+  width:100%;
+  aspect-ratio: 3 / 4;
+  height:auto;
+  object-fit:cover;
+  border-radius:12px;
+  border:1px solid #eee;
+  background:#fafafa;
+}
+
+.brand-logo {
+  height: 48px;
+}
+
+.navbar {
+  padding: 12px 0;
+}

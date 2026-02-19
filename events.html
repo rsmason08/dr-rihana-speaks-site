@@ -5,32 +5,23 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#0b0b0b" />
   <title>Calendar | Dr Rihana Speaks</title>
-  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="container navbar">
-    <a class="brand" href="/index.html" aria-label="Dr Rihana Speaks home">
-      <div class="brand-mark" aria-hidden="true"></div>
-      <div>
-        <div class="brand-name">Dr Rihana Speaks</div>
-        <span class="brand-sub">Books • Speaking • Impact</span>
-      </div>
+    <a class="brand" href="index.html" aria-label="Dr Rihana Speaks home">
+      <img src="assets/images/logo-dr-rihana.png" alt="Dr Rihana Speaks Logo" class="brand-logo">
     </a>
 
     <nav class="nav-links" aria-label="Primary">
-      <a data-nav href="/index.html">Home</a>
-      <a data-nav href="/books.html">Books</a>
-      <a data-nav href="/speaking.html">Speaking</a>
-      <a data-nav href="/events.html">Calendar</a>
+      <a data-nav href="index.html">Home</a>
+      <a data-nav href="books.html">Books</a>
+      <a data-nav href="speaking.html">Speaking</a>
+      <a data-nav href="events.html">Calendar</a>
     </nav>
-
-    <div class="nav-cta">
-      <a class="btn" href="/books.html">Shop</a>
-      <a class="btn accent" href="/speaking.html">Request Dr Rihana</a>
-    </div>
-  </div>
+</div>
 </header>
 
 <main id="main">
@@ -51,6 +42,8 @@
 
     <div id="calendar" class="card" style="padding:14px"></div>
 
+      <div style="margin-top:16px" id="eventList"></div>
+
     <div class="card" style="margin-top:16px">
       <h3 style="margin-top:0">Upcoming (list view)</h3>
       <div class="help">This list is generated from the same events data.</div>
@@ -61,46 +54,63 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.css">
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js"></script>
-<script src="/assets/js/events.js"></script>
+<script src="assets/js/events.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const calendarEl = document.getElementById('calendar');
-  const events = (window.DRS_EVENTS || []).slice();
+  const listEl = document.getElementById('eventList');
 
-  const cal = new FullCalendar.Calendar(calendarEl, {
-    initialView: 'dayGridMonth',
-    height: 'auto',
-    events,
-    eventClick: function(info) {
-      // allow clicking to open event URL if provided
-      if (info.event.url) {
-        info.jsEvent.preventDefault();
-        window.open(info.event.url, '_blank', 'noopener');
-      }
+  async function getEvents() {
+    try {
+      const res = await fetch('assets/data/events.json', { cache: 'no-store' });
+      if (!res.ok) throw new Error('Failed to load events.json');
+      const data = await res.json();
+      if (Array.isArray(data)) return data;
+      if (data && Array.isArray(data.events)) return data.events;
+      return [];
+    } catch (e) {
+      // Fallback if JSON isn't available yet
+      return (window.DRS_EVENTS || []).slice();
     }
-  });
-  cal.render();
-
-  // List view
-  const listEl = document.getElementById('eventsList');
-  if (!events.length) {
-    listEl.innerHTML = '<div class="help">No events yet. Add some in <code>/assets/js/events.js</code>.</div>';
-    return;
   }
-  const sorted = events
-    .map(e => ({...e, startDate: new Date(e.start)}))
-    .sort((a,b) => a.startDate - b.startDate);
 
-  const rows = sorted.map(e => {
-    const d = new Date(e.start);
-    const dateStr = d.toLocaleDateString(undefined, { year:'numeric', month:'short', day:'numeric' });
-    const title = e.url ? `<a href="${e.url}" rel="noopener" target="_blank">${e.title}</a>` : e.title;
-    return `<div style="display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px solid #eee">
-      <div><strong>${title}</strong><div class="help">${dateStr}</div></div>
-      <div class="badge"><span class="dot"></span>Event</div>
-    </div>`;
-  }).join('');
-  listEl.innerHTML = rows;
+  function renderList(events) {
+    if (!listEl) return;
+    if (!events.length) {
+      listEl.innerHTML = '<div class="help">No events listed yet.</div>';
+      return;
+    }
+
+    const sorted = events.slice().sort((a,b) => (a.start || '').localeCompare(b.start || ''));
+    listEl.innerHTML = sorted.map(ev => {
+      const start = ev.start ? new Date(ev.start).toLocaleDateString(undefined, { year:'numeric', month:'short', day:'numeric' }) : '';
+      const title = ev.title || 'Event';
+      const where = ev.location ? ` • ${ev.location}` : '';
+      const linkOpen = ev.url ? `<a href="${ev.url}" target="_blank" rel="noopener">Details →</a>` : '';
+      return `<div class="card" style="padding:14px">
+        <div style="display:flex;justify-content:space-between;gap:14px;align-items:baseline;flex-wrap:wrap">
+          <div><strong>${title}</strong><div class="help">${start}${where}</div></div>
+          <div>${linkOpen}</div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  getEvents().then(events => {
+    const cal = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth',
+      height: 'auto',
+      events,
+      eventClick: function(info) {
+        if (info.event.url) {
+          info.jsEvent.preventDefault();
+          window.open(info.event.url, '_blank', 'noopener');
+        }
+      }
+    });
+    cal.render();
+    renderList(events);
+  });
 });
 </script>
 
@@ -115,17 +125,9 @@ document.addEventListener('DOMContentLoaded', function() {
         Built with Netlify. Speaking requests submit through Netlify Forms.
       </div>
     </div>
-    <div>
-      <div class="badge" style="margin-bottom:10px"><span class="dot"></span>Quick links</div>
-      <div style="display:grid;gap:8px">
-        <a href="/books.html">Books & purchase links</a>
-        <a href="/events.html">Speaking calendar</a>
-        <a href="/speaking.html">Speaking request form</a>
-      </div>
-    </div>
-  </div>
+</div>
 </footer>
 
-<script src="/assets/js/main.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

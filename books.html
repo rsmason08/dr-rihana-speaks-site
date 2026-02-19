@@ -5,87 +5,88 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#0b0b0b" />
   <title>Books | Dr Rihana Speaks</title>
-  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="container navbar">
-    <a class="brand" href="/index.html" aria-label="Dr Rihana Speaks home">
-      <div class="brand-mark" aria-hidden="true"></div>
-      <div>
-        <div class="brand-name">Dr Rihana Speaks</div>
-        <span class="brand-sub">Books • Speaking • Impact</span>
-      </div>
+    <a class="brand" href="index.html" aria-label="Dr Rihana Speaks home">
+      <img src="assets/images/dr-rihana-image-2.png" alt="Dr Rihana Speaks Logo" class="brand-logo">
     </a>
 
     <nav class="nav-links" aria-label="Primary">
-      <a data-nav href="/index.html">Home</a>
-      <a data-nav href="/books.html">Books</a>
-      <a data-nav href="/speaking.html">Speaking</a>
-      <a data-nav href="/events.html">Calendar</a>
+      <a data-nav href="index.html">Home</a>
+      <a data-nav href="books.html">Books</a>
+      <a data-nav href="speaking.html">Speaking</a>
+      <a data-nav href="events.html">Calendar</a>
     </nav>
-
-    <div class="nav-cta">
-      <a class="btn" href="/books.html">Shop</a>
-      <a class="btn accent" href="/speaking.html">Request Dr Rihana</a>
-    </div>
-  </div>
+</div>
 </header>
 
 <main id="main">
-
 <section class="hero" style="padding-bottom:18px">
   <div class="container">
     <div class="kicker"><span class="dot"></span>Books</div>
-    <h1>Shop Dr Rihana’s books</h1>
-    <p class="lead">Some titles are sold through Shopify (checkout on this site). Others link out to Amazon.</p>
+    <h1>Books by Dr Rihana</h1>
+    <p class="lead">Click a cover to purchase. Shopify titles open their product pages for checkout.</p>
   </div>
 </section>
 
 <section>
-  <div class="container split">
-    <div class="card">
-      <h3>Shopify Checkout (on-site)</h3>
-      <p>Paste your Shopify Buy Button embed code below. This keeps checkout consistent and trackable.</p>
-      <div class="meta">Tip: Shopify Admin → Sales channels → Buy Button → Create Buy Button.</div>
-
-      <div class="notice" style="margin-top:14px">
-        <strong>To enable:</strong> open <code>books.html</code> and replace the placeholder script in the gray box with your Buy Button code.
-      </div>
-
-      <div style="margin-top:14px;border:1px dashed #ddd;border-radius:16px;padding:14px;background:#fafafa">
-        <!-- SHOPIFY BUY BUTTON PLACEHOLDER START -->
-        <div class="help">[Shopify Buy Button will render here after you paste the embed script.]</div>
-        <!-- SHOPIFY BUY BUTTON PLACEHOLDER END -->
-      </div>
+  <div class="container">
+    <div class="section-title">
+      <h2>Shopify Books</h2>
+      <p>Secure checkout on Shopify.</p>
     </div>
 
-    <div class="card">
-      <h3>Amazon Links (off-site)</h3>
-      <p>Use these for titles you’re not selling via Shopify.</p>
-
-      <table class="table" style="margin-top:12px">
-        <thead><tr><th>Title</th><th>Link</th></tr></thead>
-        <tbody>
-          <tr>
-            <td>Book Title A</td>
-            <td><a href="#" rel="noopener">Amazon link →</a></td>
-          </tr>
-          <tr>
-            <td>Book Title B</td>
-            <td><a href="#" rel="noopener">Amazon link →</a></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="help" style="margin-top:10px">
-        Replace the <code>#</code> with your real Amazon URLs.
-      </div>
+    <div class="cards" style="grid-template-columns:repeat(2,1fr)">
+      <a class="card book-card" href="https://majesticred.myshopify.com/products/academic-pipeline-programs" target="_blank" rel="noopener">
+        <img class="book-image" src="assets/images/APP-book-image.jpg" alt="Academic Pipeline Programs cover">
+        <h3>Academic Pipeline Programs</h3>
+        <div class="meta">View on Shopify →</div>
+      </a>
+      <a class="card book-card" href="https://majesticred.myshopify.com/products/coaching-in-home-visiting" target="_blank" rel="noopener">
+        <img class="book-image" src="assets/images/CHV-book-image.jpg" alt="Coaching in Home Visiting cover">
+        <h3>Coaching in Home Visiting</h3>
+        <div class="meta">View on Shopify →</div>
+      </a>
+      <a class="card book-card" href="https://majesticred.myshopify.com/products/early-psychological-research-contributions-from-women-of-color-vol-1" target="_blank" rel="noopener">
+        <img class="book-image" src="assets/images/WOC-book-1.jpg" alt="Early Psychological Research Contributions from Women of Color (Vol 1) cover">
+        <h3>Early Psychological Research Contributions from Women of Color (Vol 1)</h3>
+        <div class="meta">View on Shopify →</div>
+      </a>
+      <a class="card book-card" href="https://majesticred.myshopify.com/products/early-psychological-research-contributions-from-women-of-color-vol-2" target="_blank" rel="noopener">
+        <img class="book-image" src="assets/images/WOC-book-2.jpg" alt="Early Psychological Research Contributions from Women of Color (Vol 2) cover">
+        <h3>Early Psychological Research Contributions from Women of Color (Vol 2)</h3>
+        <div class="meta">View on Shopify →</div>
+      </a>
     </div>
   </div>
 </section>
 
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2>Amazon Links</h2>
+      <p>For titles hosted on Amazon, add links here.</p>
+    </div>
+
+    <div class="card" style="padding:0">
+      <table class="table" aria-label="Amazon purchase links">
+        <thead>
+          <tr><th>Title</th><th>Link</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Title name</td>
+            <td><a href="#" target="_blank" rel="noopener">Buy on Amazon →</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer class="footer">
@@ -97,17 +98,9 @@
         Built with Netlify. Speaking requests submit through Netlify Forms.
       </div>
     </div>
-    <div>
-      <div class="badge" style="margin-bottom:10px"><span class="dot"></span>Quick links</div>
-      <div style="display:grid;gap:8px">
-        <a href="/books.html">Books & purchase links</a>
-        <a href="/events.html">Speaking calendar</a>
-        <a href="/speaking.html">Speaking request form</a>
-      </div>
-    </div>
-  </div>
+</div>
 </footer>
 
-<script src="/assets/js/main.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
