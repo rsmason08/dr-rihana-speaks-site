@@ -212,3 +212,43 @@ body::before{
 .navbar {
   padding: 12px 0;
 }
+
+/* Coming Soon Section */
+.coming-soon {
+  padding: 60px 0;
+  background: linear-gradient(180deg, #ffffff, #fafafa);
+}
+
+.coming-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.coming-book-image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+/* Pearl badge */
+.pearl-badge {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #f2f2f2;
+  border: 1px solid #ddd;
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .coming-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
