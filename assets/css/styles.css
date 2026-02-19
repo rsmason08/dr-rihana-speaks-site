@@ -291,10 +291,7 @@ body::before{
   padding: 10px 0;
 }
 
-/* shows only after tapping hamburger */
-.mobile-menu.active{
-  display: flex;
-}
+
 
 /* ===== NAV: Mobile behavior ===== */
 @media (max-width: 920px){
@@ -316,6 +313,12 @@ body::before{
   .brand-logo{
     height: 44px;
     width: auto;
+  }
+
+  /* shows only after tapping hamburger */
+  .mobile-menu.active{
+    display: flex;
+    flex-direction: column;
   }
 }
 
