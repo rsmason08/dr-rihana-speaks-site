@@ -219,11 +219,11 @@ body::before{
   background: linear-gradient(180deg, #ffffff, #fafafa);
 }
 
-.coming-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
+.coming-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:start;
 }
 
 .coming-book-image {
@@ -321,4 +321,157 @@ body::before{
     flex-direction: column;
   }
 }
+/* =====================
+   ABOUT PAGE
+===================== */
 
+.about-section{
+  padding:90px 20px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='220' viewBox='0 0 260 220'%3E%3Cg fill='none' stroke='%237a0b0b' stroke-width='2'%3E%3Cpath d='M130 110c-18-14-42-22-66-18 10 24 30 46 56 54 10 3 18-1 10-10-10-12-10-18 0-26Z'/%3E%3Cpath d='M130 110c18-14 42-22 66-18-10 24-30 46-56 54-10 3-18-1-10-10 10-12 10-18 0-26Z'/%3E%3Cpath d='M130 110c-8-10-10-22-8-34 6 8 10 16 12 24 2 8 2 14-4 10Z'/%3E%3Cpath d='M130 110c8-10 10-22 8-34-6 8-10 16-12 24-2 8-2 14 4 10Z'/%3E%3C/g%3E%3C/svg%3E") repeat,
+    linear-gradient(#ffffff,#ffffff);
+  background-size:220px;
+  opacity:0.95;
+}
+
+.about-section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(255,255,255,0.75);
+}
+
+.about-wrapper{
+  max-width:1000px;
+  margin:auto;
+  position:relative;
+  z-index:1;
+}
+
+.about-title{
+  font-size:44px;
+  font-weight:700;
+  margin-bottom:50px;
+  position:relative;
+}
+
+.about-title::after{
+  content:"";
+  width:70px;
+  height:4px;
+  background:#8b0000;
+  display:block;
+  margin-top:14px;
+}
+
+.about-content{
+  display:flex;
+  gap:60px;
+  align-items:flex-start;
+  background:white;
+  padding:50px;
+  border-radius:12px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.06);
+}
+
+.about-photo img{
+  width:260px;
+  height:auto;
+  border-radius:12px;
+  object-fit:cover;
+  box-shadow:0 12px 30px rgba(0,0,0,0.15);
+}
+
+.about-text{
+  max-width:650px;
+}
+
+.about-text p{
+  font-size:18px;
+  line-height:1.8;
+  margin-bottom:20px;
+  color:#444;
+}
+
+@media (max-width:768px){
+
+  .about-content{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .about-photo img{
+    width:220px;
+  }
+
+}
+
+.declaration-list{
+  margin:16px 0 24px 20px;
+  line-height:1.7;
+}
+
+.declaration-list li{
+  margin-bottom:6px;
+}
+
+.book-summary-card{
+  background:white;
+  padding:22px 26px;
+  border-radius:14px;
+  border:1px solid #eee;
+  box-shadow:0 8px 22px rgba(0,0,0,0.05);
+  margin-bottom:22px;
+}
+
+.declaration-benefits-card{
+  background:#fafafa;
+  padding:22px 26px;
+  border-radius:14px;
+  border:1px solid #eee;
+  margin-bottom:22px;
+}
+
+.benefits-title{
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.declaration-list{
+  margin-left:18px;
+  line-height:1.7;
+}
+
+.declaration-highlight{
+  border-left:4px solid var(--red);
+  padding:18px 22px;
+  background:rgba(122,11,11,0.05);
+  border-radius:8px;
+  margin-bottom:22px;
+}
+
+.declaration-closing{
+  background:white;
+  padding:22px 26px;
+  border-radius:14px;
+  border:1px solid #eee;
+  box-shadow:0 8px 22px rgba(0,0,0,0.05);
+}
+
+.closing-lines{
+  margin-top:10px;
+  font-weight:600;
+}
+
+.book-preorder{
+  margin-top:18px;
+  display:flex;
+  justify-content:center;
+  width:100%;
+}
+
+.coming-image{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
